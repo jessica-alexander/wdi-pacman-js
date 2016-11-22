@@ -20,6 +20,22 @@ var blinky = {
   edible: false;
 }
 
+var pinky = {
+  menu_option: '3';
+  name: 'Pinky'
+  colour: 'Pink'
+  character: 'Bashful'
+  edible: false;
+}
+
+var clyde = {
+  menu_option: '4';
+  name: 'Clyde'
+  colour: 'Orange'
+  character: 'Pokey'
+  edible: false;
+}
+
 // replace this comment with your four ghosts setup as objects
 
 
