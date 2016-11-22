@@ -78,7 +78,10 @@ function eatDot() {
   score += 10;
 }
 
-
+function eatGhost(){
+  console.log(ghosts[index].name + 'the' + ghosts[index].colour + 'killed Pac-Man')// concentate
+  lives -= 1;
+}
 // Process Player's Input
 function processInput(key) {
   switch(key) {
