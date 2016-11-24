@@ -78,9 +78,12 @@ function eatDot() {
   score += 10;
 }
 
-function eatGhost(){
-  console.log(ghosts[index].name + 'the' + ghosts[index].colour + 'killed Pac-Man')// concentate
-  lives -= 1;
+function eatGhost(ghost){
+  if (ghost.edible === false) {
+    console.log('\n' + ghost.name + ' the ghost ' + ghost.colour + ' killed Pac-Man');// concentate
+    lives -= 1;
+    gameOver();
+  }
 }
 // Process Player's Input
 function processInput(key) {
@@ -91,6 +94,18 @@ function processInput(key) {
       break;
     case 'd':
       eatDot();
+      break;
+    case '1':
+      eatGhost(inky)
+      break;
+    case '2':
+      eatGhost(blinky)
+      break;
+    case '3':
+      eatGhost(pinky)
+      break;
+    case '4':
+      eatGhost(clyde)
       break;
     default:
       console.log('\nInvalid Command!');
@@ -117,6 +132,13 @@ stdin.on('data', function(key) {
   processInput(key);
   setTimeout(drawScreen, 300); // The command prompt will flash a message for 300 milliseoncds before it re-draws the screen. You can adjust the 300 number to increase this.
 });
+
+function gameOver (){
+  if (lives === 0) {
+    process.exit ()
+  }
+
+}
 
 // Player Quits
 process.on('exit', function() {
